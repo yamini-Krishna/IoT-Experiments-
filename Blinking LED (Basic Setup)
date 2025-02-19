@@ -1,0 +1,18 @@
+
+Simple LED blink using Arduino Uno.
+
+Components: Arduino, LED, 220Ω Resistor.
+Circuit Connection:
+LED +ve (Anode) → Arduino Pin 13
+LED -ve (Cathode) → GND via 220Ω resistor
+
+void setup() {
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(13, HIGH);  // Turn LED ON
+  delay(1000);             // Wait 1 sec
+  digitalWrite(13, LOW);   // Turn LED OFF
+  delay(1000);             // Wait 1 sec
+}
