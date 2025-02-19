@@ -19,7 +19,9 @@ Extract and install the software.
 🚀 If you don’t want to install Arduino IDE, use these online platforms:
 
 ✅ Arduino Web Editor (Official & cloud-based)
+
 ✅ TinkerCAD Circuits (Simulate circuits & write code)
+
 ✅ Wokwi Simulator (Advanced simulation for Arduino, ESP32, etc.)
 
 These platforms allow you to write, test, and simulate Arduino code online!
