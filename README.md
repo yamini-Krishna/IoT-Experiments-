@@ -28,5 +28,7 @@ These platforms allow you to write, test, and simulate Arduino code online!
 
 **🔧 Requirements**
 Arduino IDE for coding and uploading sketches.
+
 ESP8266/NodeMCU libraries for WiFi-based projects.
+
 DHT11 & PIR Sensor libraries (install via Arduino Library Manager).
