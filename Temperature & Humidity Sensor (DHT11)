@@ -1,0 +1,29 @@
+
+Reads temperature and displays it on the Serial Monitor.
+
+Components: DHT11 Sensor, Arduino, 10kΩ Resistor.
+
+Circuit Connection:
+DHT11 VCC → 5V
+DHT11 GND → GND
+DHT11 Data Pin → Pin 2
+
+#include <DHT.h>
+
+#define DHTPIN 2      
+#define DHTTYPE DHT11 
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+
+void loop() {
+  float temp = dht.readTemperature();
+  Serial.print("Temperature: ");
+  Serial.print(temp);
+  Serial.println("°C");
+  delay(2000);
+}
