@@ -32,6 +32,7 @@ Simple LED blink using Arduino Uno.
 Components: Arduino, LED, 220Ω Resistor.
 Code Here:
 void setup() {
+
   pinMode(13, OUTPUT);
 }
 
