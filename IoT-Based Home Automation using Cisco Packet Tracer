@@ -1,0 +1,79 @@
+This project simulates a home automation system where you can control lights, fans, and a door lock remotely using a mobile device connected to a WiFi router. The setup uses Arduino, IoT devices, and an IoT Cloud server inside Cisco Packet Tracer.
+
+🔧 Components Needed in Cisco Packet Tracer
+Arduino Uno – Main controller for IoT devices
+IoT Smart Light – Turns ON/OFF via mobile app
+IoT Smart Fan – Turns ON automatically based on temperature
+IoT Door Lock – Lock/unlock via mobile app
+Temperature Sensor – Reads temperature to control the fan
+Home WiFi Router – Connects Arduino & IoT devices to the network
+Tablet PC (Mobile App Simulation) – Controls IoT devices
+IoT Cloud Server – Enables remote control from the mobile
+
+📡 Step-by-Step Setup in Cisco Packet Tracer
+
+1️⃣ Connect the Arduino to the WiFi Router
+Click on Arduino Uno, go to the Programming Tab, and connect Serial0 to the WiFi Router.
+Assign an IP address to the Arduino so it can communicate over the network.
+
+2️⃣ Add IoT Devices & Connect to the Router
+Place IoT Smart Light, Fan, and Door Lock from the IoT Devices section.
+Go to each device's Settings and connect them to the WiFi Router using SSID & password.
+
+3️⃣ Add the IoT Cloud Server
+Drag an IoT Cloud Server into the workspace.
+Connect the WiFi Router to the IoT Cloud using Ethernet.
+Register the IoT devices in the IoT Cloud Server so they can be controlled remotely.
+
+4️⃣ Add a Tablet (Mobile Device) for Control
+Drag a Tablet PC from the End Devices section.
+Connect it to the WiFi Router by selecting the correct SSID.
+Open the IoT Monitor App inside the Tablet.
+Pair the IoT devices (Light, Fan, Door Lock) with the app.
+
+CODE:
+
+int lightPin = 2;
+int fanPin = 3;
+int doorLock = 4;
+int tempSensor = A0;
+
+void setup() {
+  pinMode(lightPin, OUTPUT);
+  pinMode(fanPin, OUTPUT);
+  pinMode(doorLock, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int temp = analogRead(tempSensor);
+
+  // Auto Fan Control
+  if (temp > 30) {
+    digitalWrite(fanPin, HIGH);  // Turn ON fan if temperature > 30°C
+  } else {
+    digitalWrite(fanPin, LOW);   // Turn OFF fan if temperature is normal
+  }
+
+  // Remote commands from Mobile App
+  if (Serial.available()) {
+    char command = Serial.read();
+    
+    if (command == 'L') { digitalWrite(lightPin, HIGH); }  // Turn ON Light
+    if (command == 'l') { digitalWrite(lightPin, LOW); }   // Turn OFF Light
+    if (command == 'D') { digitalWrite(doorLock, HIGH); }  // Unlock Door
+    if (command == 'd') { digitalWrite(doorLock, LOW); }   // Lock Door
+  }
+}
+
+📱 How to Control Devices from Mobile (Tablet PC in Cisco Packet Tracer)
+Open the Tablet PC.
+Go to Desktop → IoT Monitor App.
+Pair the Smart Light, Fan, and Door Lock.
+Use the ON/OFF buttons in the app to control the devices remotely.
+📌 Example Controls:
+
+Press "L" → Light turns ON
+Press "l" → Light turns OFF
+Press "D" → Door Unlocks
+Press "d" → Door Locks
