@@ -6,6 +6,7 @@ This repository contains beginner-friendly IoT projects using Arduino, ESP8266, 
 **🛠 Arduino IDE Installation & Online Alternatives**
 
 1️⃣ Install Arduino IDE (Offline)
+
 🔹 For Windows:
 Download from Arduino Official Site.
 Run the installer and follow the setup.
