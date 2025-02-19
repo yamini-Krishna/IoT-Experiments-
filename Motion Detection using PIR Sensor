@@ -1,0 +1,28 @@
+Detects motion using PIR sensor and turns on an LED.
+
+Components: PIR Sensor (HC-SR501), Arduino, LED, Resistor.
+
+Circuit Connection:
+PIR VCC → 5V
+PIR GND → GND
+PIR OUT → Pin 2
+LED → Pin 13
+
+Code:
+
+int pirPin = 2;
+int ledPin = 13;
+
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  int motion = digitalRead(pirPin);
+  if (motion == HIGH) {
+    digitalWrite(ledPin, HIGH);  // Turn LED ON if motion detected
+  } else {
+    digitalWrite(ledPin, LOW);   // Turn LED OFF if no motion
+  }
+}
