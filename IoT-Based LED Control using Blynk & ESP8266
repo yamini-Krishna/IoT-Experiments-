@@ -1,0 +1,26 @@
+
+Control an LED remotely via the Blynk app using ESP8266 WiFi module.
+
+Components: ESP8266 NodeMCU, LED, Resistor, Blynk App.
+
+Circuit Connection:
+LED +ve → D2 (GPIO4)
+LED -ve → GND
+
+Code:
+
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+
+char auth[] = "Your_Blynk_Auth_Token";
+char ssid[] = "Your_WiFi_Name";
+char pass[] = "Your_WiFi_Password";
+
+void setup() {
+  Blynk.begin(auth, ssid, pass);
+  pinMode(4, OUTPUT);
+}
+
+void loop() {
+  Blynk.run();
+}
